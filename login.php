@@ -179,6 +179,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <h1 class="text-3xl font-bold text-darkblue">Welcome Back</h1>
                 <p class="text-gray-500 mt-2 text-sm">Securely login to manage vaccinations.</p>
+                <div class="mt-4 p-3 rounded-xl text-sm font-bold bg-green-100 text-green-700">
+                    <p>ADMIN LOGIN: <br> USERNAME: super admin, <br> PASSWORD: SA</p>
+                    <p>Hospital & Parent must register to create an account.</p>
+                </div>
                 <?php if ($loginError): ?>
                     <div class="mt-4 p-3 rounded-xl text-sm font-bold bg-red-100 text-red-700">
                         <?php echo htmlspecialchars($loginError); ?>

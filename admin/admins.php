@@ -1,6 +1,13 @@
 <?php
 include 'admin_partials/inc_header.php';
 
+if ($user_role = 2 ) {
+    header('Location: dashboard.php');
+    exit;
+}
+
+
+
 $message = '';
 
 // --- 2. Handle Actions (Block, Unblock, Delete) ---
@@ -181,7 +188,7 @@ $result = mysqli_query($conn, $sql);
                                     <span class="<?php echo $statusClass; ?> px-3 py-1 rounded-full text-xs font-bold"><?php echo $status ? 'Active' : 'Blocked'; ?></span>
                                 </td>
                                 <td class="px-6 py-4 text-center relative">
-                                    <?php if ($row['admin_id'] == $user_role) : ?>
+                                    <?php if ($row['role_id'] == 1) : ?>
                                         <button disabled class="p-2 text-gray-300 cursor-not-allowed" title="You cannot edit yourself">
                                             <i data-lucide="lock" class="w-4 h-4"></i>
                                         </button>

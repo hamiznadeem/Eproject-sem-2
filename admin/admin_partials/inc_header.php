@@ -145,10 +145,11 @@ $current_page = basename($_SERVER['SCRIPT_NAME']);
                     <a href="inquiries.php" class="<?php echo $current_page === 'inquiries.php' ? 'flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-medium transition' : 'flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium transition'; ?>">
                         <i data-lucide="message-square-more" class="w-5 h-5"></i> Inquiries
                     </a>
-                    <?php if($user_role == 1) ?>
+                    <?php if($user_role == 1){ ?>
                     <a href="admins.php" class="<?php echo $current_page === 'admins.php' ? 'flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl font-medium transition' : 'flex items-center gap-3 px-4 py-3 text-gray-400 hover:bg-white/5 hover:text-white rounded-xl font-medium transition'; ?>">
                         <i data-lucide="shield-user" class="w-5 h-5"></i> Admins
                     </a>
+                    <?php } ?>
                 </nav>
             </div>
 

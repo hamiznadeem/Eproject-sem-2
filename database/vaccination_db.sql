@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2025 at 03:34 PM
+-- Generation Time: Dec 13, 2025 at 06:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,8 +43,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`admin_id`, `username`, `password`, `admin_name`, `email`, `role_id`, `isActive`, `create_date`) VALUES
-(1, 'super admin', 'SA', 'SUPER ADMIN', '', 1, 1, '2025-12-07 02:52:55'),
-(6, 'admin', 'admin1', 'ADMIN', 'admin@vaccining.com', 2, 1, '2025-12-12 01:57:53');
+(1, 'super admin', 'SA', 'SUPER ADMIN', '', 1, 1, '2025-12-07 02:52:55');
 
 -- --------------------------------------------------------
 
@@ -67,15 +66,6 @@ CREATE TABLE `childrens` (
   `isActive` tinyint(1) NOT NULL DEFAULT 1,
   `create_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `childrens`
---
-
-INSERT INTO `childrens` (`child_id`, `child_name`, `father_name`, `mother_name`, `child_dob`, `child_gender`, `bf_crc_no`, `child_pob`, `child_bloodg`, `child_allergic`, `parent_id`, `isActive`, `create_date`) VALUES
-(9, 'Aaish Ahmed', 'Nadeem Ahmed', 'Misbah Nadeem', '2013-12-30', 'male', '42301-4271335-3', 'Karachi Gulshan Iqbal', 'A+', '', 3, 1, '2025-12-08 23:17:15'),
-(10, 'Sinwa Nadeem', 'Nadeem Ahmed', 'Misbah Nadeem', '2007-12-31', 'female', '42301-4271335-4', 'Karachi Gulshan Iqbal', 'AB+', '', 3, 1, '2025-12-09 02:16:16'),
-(11, 'Sakina', 'Syed Qaim', 'Mehmal Fatima', '2025-09-06', 'female', '42201153123123', 'city hospital', 'A+', '', 5, 1, '2025-12-10 15:21:27');
 
 -- --------------------------------------------------------
 
@@ -100,13 +90,6 @@ CREATE TABLE `hospitals` (
   `create_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `hospitals`
---
-
-INSERT INTO `hospitals` (`hospital_id`, `hospital_name`, `lc_rg_no`, `phone`, `email`, `hospital_address`, `hospital_description`, `hospital-website`, `password`, `hospital_img`, `terms_privacy_accept`, `role_id`, `isActive`, `create_date`) VALUES
-(2, 'Shaukat Khanum', 'hosreg1234566', '03132110254', 'hamiznadeem@gmail.com', 'jinnah road karachi', 'hospital', 'www.example2.com', '$2y$10$Lz55xcAfSLdRVIK4phdHpOnIV6/S.f/9ClAhEzK.rP287xMXoobVi', 'android-chrome-512x512.png', 1, 3, 1, '2025-12-07 03:15:09');
-
 -- --------------------------------------------------------
 
 --
@@ -122,15 +105,6 @@ CREATE TABLE `inquiries` (
   `inquiry_status` enum('pending','solved','working','') NOT NULL DEFAULT 'pending',
   `create_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `inquiries`
---
-
-INSERT INTO `inquiries` (`inquiry_id`, `sender_name`, `sender_email`, `subject`, `inquiry_message`, `inquiry_status`, `create_date`) VALUES
-(2, 'hamiz', 'hamiznadeem@gmail.com', 'Booking Issue', 'issue', 'solved', '2025-12-10 04:31:34'),
-(3, 'hamiz', 'hamiznadeem@gmail.com', 'General Inquiry', 'hello', 'solved', '2025-12-10 04:35:16'),
-(4, 'hamiz', 'hamiznadeem@gmail.com', 'General Inquiry', 'hello', 'solved', '2025-12-10 04:37:12');
 
 -- --------------------------------------------------------
 
@@ -149,14 +123,6 @@ CREATE TABLE `parents` (
   `isActive` tinyint(1) NOT NULL DEFAULT 1,
   `create_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `parents`
---
-
-INSERT INTO `parents` (`parent_id`, `fname`, `cnic`, `phone`, `email`, `password`, `role_id`, `isActive`, `create_date`) VALUES
-(3, 'kinza raza', '545454545554', '03132110254', 'hamiznadeem@gmail.com', '$2y$10$H44IuuFeTDXfMcjqDmlL7OHF.M6t88r19DzDA7iNDuXkUYkzL.dh2', 4, 1, '2025-12-07 11:38:54'),
-(5, 'qaimraza', '4220182892427', '03101083391', 'qaim@gmail.com', '$2y$10$h2IYh5gkTHkQjgpE9LSnQuKnygif7q0NW/Eq44T8Qg4hwenV/coQ6', 4, 1, '2025-12-10 15:18:04');
 
 -- --------------------------------------------------------
 
@@ -200,14 +166,6 @@ CREATE TABLE `vaccination_schedules` (
   `create_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `vaccination_schedules`
---
-
-INSERT INTO `vaccination_schedules` (`schedule_id`, `child_id`, `parent_id`, `hospital_id`, `vaccine_id`, `scheduled_date`, `scheduled_time`, `status`, `report`, `create_date`) VALUES
-(3, 10, 3, 2, 3, '2025-12-11', '10:00 AM', 'cancelled', NULL, '2025-12-10 05:00:35'),
-(4, 9, 3, 2, 4, '2025-12-13', '10:00 AM', 'completed', 'Screenshot 2025-04-26 144749.png', '2025-12-11 01:21:43');
-
 -- --------------------------------------------------------
 
 --
@@ -228,14 +186,6 @@ CREATE TABLE `vaccines` (
   `batch_info` varchar(1000) DEFAULT NULL,
   `create_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `vaccines`
---
-
-INSERT INTO `vaccines` (`vaccine_id`, `vaccine_name`, `batch_no`, `doses`, `vaccine_type`, `target_age`, `m_date`, `exp_date`, `stock_status`, `hospital_id`, `batch_info`, `create_date`) VALUES
-(3, 'POLIO (OPV)', 'BATCH-2025-Dec', 2, 'Oral', '1 to 6 year', '2025-12-09', '2026-12-09', 'high', 2, 'nothing', '2025-12-11 00:06:45'),
-(4, 'Injection', 'BATCH-2025-Dec', 2, 'Injection', '1 to 2 year&#039;s', '2023-10-31', '2026-12-10', 'high', 2, '', '2025-12-11 00:20:33');
 
 --
 -- Indexes for dumped tables
@@ -312,31 +262,31 @@ ALTER TABLE `vaccines`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `childrens`
 --
 ALTER TABLE `childrens`
-  MODIFY `child_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `child_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `hospitals`
 --
 ALTER TABLE `hospitals`
-  MODIFY `hospital_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `hospital_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `inquiries`
 --
 ALTER TABLE `inquiries`
-  MODIFY `inquiry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `inquiry_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
-  MODIFY `parent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `parent_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -348,13 +298,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `vaccination_schedules`
 --
 ALTER TABLE `vaccination_schedules`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `vaccines`
 --
 ALTER TABLE `vaccines`
-  MODIFY `vaccine_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `vaccine_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
