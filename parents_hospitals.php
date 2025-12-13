@@ -23,12 +23,6 @@ if (!isset($_SESSION['isLogin'])) {
 ?>
 <!-- Main Content -->
 <div class="pt-32 pb-20 px-6 md:px-20 max-w-[1400px] mx-auto flex-grow w-full fade-in">
-    <!-- Breadcrumb -->
-    <div class="flex items-center gap-2 text-sm text-gray-400 mb-6">
-        <a href="index.php" class="hover:text-primary">Home</a>
-        <i data-lucide="chevron-right" class="w-4 h-4"></i>
-        <span class="text-gray-800 font-medium">Hospitals</span>
-    </div>
 
     <!-- Header Section -->
     <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
@@ -57,7 +51,7 @@ if (!isset($_SESSION['isLogin'])) {
                         <a href="parents_book_appointment.php?id=<?php echo $row['hospital_id'] ?>" class="block bg-white p-4 rounded-[2rem] shadow-lg shadow-gray-100/50 border border-gray-100 transition hover:-translate-y-2 h-full">
                         <div class="h-48 flex items-center justify-center rounded-[1.5rem] overflow-hidden bg-slate-100 relative mb-5">
                             <?php if(!empty($row['hospital_img'])){?>
-                            <img src="<?php echo $row['hospital_img'] ?>" alt="Hospital image" class="w-full h-full object-cover">
+                            <img src="./asset/images/<?php echo $row['hospital_img'] ?>" alt="Hospital image" class="w-full h-full object-cover">
                             <?php }else{?>
                                 <i data-lucide="hospital" class="w-12 h-12 text-primary"></i>
                             <?php } ?>

@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_admin_btn'])) {
 <main class="relative lg:ml-64 pt-6 lg:pt-10 pb-10 min-h-screen bg-slate-50">
     
     <div class="px-6 lg:px-10 mb-6 flex items-center gap-2 text-sm text-gray-400">
-        <a href="admins.php" class="hover:text-primary transition">Admin Users</a>
+        <a href="appointments.php" class="hover:text-primary transition">Admin Users</a>
         <i data-lucide="chevron-right" class="w-4 h-4"></i>
         <span class="text-slate-800 font-bold">Add New Admin</span>
     </div>
