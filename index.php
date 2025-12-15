@@ -448,8 +448,8 @@ $result = mysqli_query($conn, $sql);
                         </a>
                     </div>
                 <?php } else { ?>
-                    <div>
-                        <div colspan="6" class="px-6 py-12 text-center text-gray-400">
+                    <div class="flex justify-center items-center w-full">
+                        <div colspan="12" class="px-6 py-12 text-center text-gray-400">
                             <i data-lucide="hospital" class="w-10 h-10 mx-auto mb-4"></i>
                             <div class="font-bold"> No hospital found</div>
                             <div class="text-xs mt-1">Try adjusting your filters or search query.</div>

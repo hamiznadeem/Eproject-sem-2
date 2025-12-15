@@ -191,8 +191,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $hos_license = safe_input($_POST['hos_license']);
         }
         if (!empty($hos_license)) {
-            $hos_lc_valid = preg_replace('/\W/', '', $hos_license);
-            if (strlen($hos_lc_valid) != 13) {
+            $hos_lc_valid = preg_replace('/\W-/', '', $hos_license);
+            if (strlen($hos_lc_valid) >= 8) {
                 $hosLcErr = "License or Registration number must be valid.";
                 $all_fields_filled = false;
             } else {

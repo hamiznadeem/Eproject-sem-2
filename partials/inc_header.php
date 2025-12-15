@@ -175,15 +175,40 @@ $current_page = basename($_SERVER['SCRIPT_NAME']);
     </nav>
 
     <!-- Mobile Menu Overlay (Adjusted z-index to cover nav) -->
+    <?php  if (isset($_SESSION['isLogin']) && $_SESSION['isLogin'] == true) { ?>
     <div id="mobile-menu"
-        class="fixed inset-0 bg-darkblue z-[60] hidden flex-col justify-center items-center space-y-8 text-white text-xl font-medium fade-in lg:hidden">
+        class="fixed inset-0 bg-darkblue z-[60] hidden flex-col justify-center items-center space-y-6 text-white text-xl font-medium fade-in lg:hidden">
         <div class="absolute top-6 left-6 text-white text-2xl font-bold tracking-wide">Vaccining</div>
         <button class="absolute top-6 right-6 text-white p-2 focus:outline-none hover:text-primary transition"
             onclick="closeMenu()">
             <i data-lucide="x" class="w-10 h-10"></i>
         </button>
-        <a href="#" class="hover:text-primary flex items-center gap-2" onclick="closeMenu()"><i data-lucide="hospital"
+        
+        <?php if ($_SESSION['user_role'] == 4) { ?>
+        <a href="parents_profile.php" class="<?php echo $current_page === 'parents_profile.php' ? 'flex items-center gap-2 bg-primary/5 py-2 px-3 rounded-full text-primary font-semibold transition ease-in-out' : 'flex items-center gap-2 text-white hover:text-primary py-2 px-3 rounded-full transition'; ?>" <?php if ($current_page === 'parents_profile.php') echo 'aria-current="page"'; ?> onclick="closeMenu()"><i data-lucide="user"
+                class="w-4 h-4"></i> Profile</a>
+        <a href="parents_hospitals.php" class="<?php echo $current_page === 'parents_hospitals.php' ? 'flex items-center gap-2 bg-primary/5 py-2 px-3 rounded-full text-primary font-semibold transition ease-in-out' : 'flex items-center gap-2 text-white hover:text-primary py-2 px-3 rounded-full transition'; ?>" <?php if ($current_page === 'parents_hospitals.php') echo 'aria-current="page"'; ?> onclick="closeMenu()"><i data-lucide="hospital"
                 class="w-4 h-4"></i> Hospitals</a>
-        <a href="#" class="hover:text-primary flex items-center gap-2" onclick="closeMenu()"><i data-lucide="calendar"
-                class="w-4 h-4"></i> My Booking</a>
+        <a href="parents_vaccines.php" class="<?php echo $current_page === 'parents_vaccines.php' ? 'flex items-center gap-2 bg-primary/5 py-2 px-3 rounded-full text-primary font-semibold transition ease-in-out' : 'flex items-center gap-2 text-white hover:text-primary py-2 px-3 rounded-full transition'; ?>" <?php if ($current_page === 'parents_vaccines.php') echo 'aria-current="page"'; ?> onclick="closeMenu()"><i data-lucide="syringe"
+                class="w-4 h-4"></i> Vaccines</a>
+        <a href="parents_appointments.php" class="<?php echo $current_page === 'parents_appointments.php' ? 'flex items-center gap-2 bg-primary/5 py-2 px-3 rounded-full text-primary font-semibold transition ease-in-out' : 'flex items-center gap-2 text-white hover:text-primary py-2 px-3 rounded-full transition'; ?>" <?php if ($current_page === 'parents_appointments.php') echo 'aria-current="page"'; ?> onclick="closeMenu()"><i data-lucide="calendar"
+                class="w-4 h-4"></i> My Appointments</a>
+        <a href="contact.php" class="<?php echo $current_page === 'contact.php' ? 'flex items-center gap-2 bg-primary/5 py-2 px-3 rounded-full text-primary font-semibold transition ease-in-out' : 'flex items-center gap-2 text-white hover:text-primary py-2 px-3 rounded-full transition'; ?>" <?php if ($current_page === 'contact.php') echo 'aria-current="page"'; ?> onclick="closeMenu()"><i data-lucide="headset"
+                class="w-4 h-4"></i> Contact Us</a>
+        <a href="logout.php" class="<?php echo $current_page === 'logout.php' ? 'flex items-center gap-2 bg-primary/5 py-2 px-3 rounded-full text-primary font-semibold transition ease-in-out' : 'flex items-center gap-2 text-primary hover:text-red-600 py-2 px-3 rounded-full transition'; ?>" <?php if ($current_page === 'logout.php') echo 'aria-current="page"'; ?> onclick="closeMenu()"><i data-lucide="log-out"
+                class="w-4 h-4"></i> logout</a>
+
+        <?php } elseif ($_SESSION['user_role'] == 3) {?>
+        <a href="hospital_profile.php" class="<?php echo $current_page === 'hospital_profile.php' ? 'flex items-center gap-2 bg-primary/5 py-2 px-3 rounded-full text-primary font-semibold transition ease-in-out' : 'flex items-center gap-2 text-white hover:text-primary py-2 px-3 rounded-full transition'; ?>" <?php if ($current_page === 'hospital_profile.php') echo 'aria-current="page"'; ?> onclick="closeMenu()"><i data-lucide="user"
+                class="w-4 h-4"></i> Profile</a>
+        <a href="hospital_inven.php" class="<?php echo $current_page === 'hospital_inven.php' ? 'flex items-center gap-2 bg-primary/5 py-2 px-3 rounded-full text-primary font-semibold transition ease-in-out' : 'flex items-center gap-2 text-white hover:text-primary py-2 px-3 rounded-full transition'; ?>" <?php if ($current_page === 'hospital_inven.php') echo 'aria-current="page"'; ?> onclick="closeMenu()"><i data-lucide="archive"
+                class="w-4 h-4"></i> Inventory</a>
+        <a href="hospital_appointment.php" class="<?php echo $current_page === 'hospital_appointment.php' ? 'flex items-center gap-2 bg-primary/5 py-2 px-3 rounded-full text-primary font-semibold transition ease-in-out' : 'flex items-center gap-2 text-white hover:text-primary py-2 px-3 rounded-full transition'; ?>" <?php if ($current_page === 'hospital_appointment.php') echo 'aria-current="page"'; ?> onclick="closeMenu()"><i data-lucide="calendar-check"
+                class="w-4 h-4"></i> Appointments</a>
+        <a href="contact.php" class="<?php echo $current_page === 'contact.php' ? 'flex items-center gap-2 bg-primary/5 py-2 px-3 rounded-full text-primary font-semibold transition ease-in-out' : 'flex items-center gap-2 text-white hover:text-primary py-2 px-3 rounded-full transition'; ?>" <?php if ($current_page === 'contact.php') echo 'aria-current="page"'; ?> onclick="closeMenu()"><i data-lucide="headset"
+                class="w-4 h-4"></i> Contact Us</a>
+        <a href="logout.php" class="<?php echo $current_page === 'logout.php' ? 'flex items-center gap-2 bg-primary/5 py-2 px-3 rounded-full text-primary font-semibold transition ease-in-out' : 'flex items-center gap-2 text-primary hover:text-red-600 py-2 px-3 rounded-full transition'; ?>" <?php if ($current_page === 'logout.php') echo 'aria-current="page"'; ?> onclick="closeMenu()"><i data-lucide="log-out"
+                class="w-4 h-4"></i> logout</a>
+                <?php } ?>
     </div>
+    <?php } ?>

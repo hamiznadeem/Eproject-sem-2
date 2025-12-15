@@ -1,8 +1,6 @@
         window.addEventListener('load', function() {
-    setTimeout(function() {
-        document.body.classList.add('loaded');
-    }, 2000);
-});
+            document.body.classList.add('loaded');
+        });
 
 document.addEventListener('DOMContentLoaded', function () {
             // Initialize Icons
